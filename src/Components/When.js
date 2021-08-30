@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { enterWhen } from "../RootSlice";
-import { TextField, Button, Card, CardContent, CardActions } from "@material-ui/core";
+import { TextField, Button, Card, CardContent} from "@material-ui/core";
 
 export const When = () => {
 	const dispatch = useDispatch()
@@ -19,15 +19,15 @@ export const When = () => {
 	return (
 			<div className="flex-container">
 			<Card className="survey">
-				<CardContent>
+                <CardContent>
+                    <p>When is it?</p>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
 							<label htmlFor="when"></label>
 							<TextField
 								required
 								id="when"
-								label="When"
-								defaultValue=""
+								label="Enter a time"
                                 variant="outlined"
                             name="when"
                                 {...register('when', { required: true })}

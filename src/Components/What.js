@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { enterWhat } from "../RootSlice";
-import { TextField, Button, Card, CardContent, CardActions } from "@material-ui/core";
+import { TextField, Button, Card, CardContent} from "@material-ui/core";
 
 export const What = () => {
+    const state = useSelector(state => state)
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const what = useSelector(state => state.what)
@@ -19,21 +20,23 @@ export const What = () => {
 	return (
 			<div className="flex-container">
 			<Card className="survey">
-				<CardContent>
+                <CardContent>
+                    <p>What is {state.who} doing?</p>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
 							<label htmlFor="what"></label>
-							<TextField
+                            <TextField
+                                className = "answer-box"
 								required
 								id="what"
-								label="what"
+								label="Enter an action"
 								defaultValue=""
                                 variant="outlined"
                                 name="what"
                                 {...register('what', { required: true })}
 							/>
 						</div>
-                        <div>
+                        <div className = "button-container">
                             <Button onClick={history.goBack}>Back</Button>
                             <Button type="submit">Next</Button>
                         </div>

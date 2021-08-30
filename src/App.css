@@ -2,9 +2,10 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   width: 30%;
-  float: right;
   margin-left: 10px;
   display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 .survey:hover {
@@ -20,6 +21,9 @@
 
 .button-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }
 
+.answer-box{
+  width: 300px;
+}
