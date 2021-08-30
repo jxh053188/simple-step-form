@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { enterWhen } from "../RootSlice";
 import { TextField, Button, Card, CardContent} from "@material-ui/core";
@@ -8,10 +8,10 @@ import { TextField, Button, Card, CardContent} from "@material-ui/core";
 export const When = () => {
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const when = useSelector(state => state.when)
+	const when = useSelector((state: RootStateOrAny) => state.when)
 	const { register, handleSubmit } = useForm({ defaultValues: { when } })
 	
-	const onSubmit = (data) => {
+	const onSubmit = (data: { when: string; }) => {
 		dispatch(enterWhen(data.when))
 		history.push("/result")
 	}
@@ -29,7 +29,6 @@ export const When = () => {
 								id="when"
 								label="Enter a time"
                                 variant="outlined"
-                            name="when"
                                 {...register('when', { required: true })}
 							/>
 						</div>

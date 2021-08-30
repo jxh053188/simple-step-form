@@ -1,18 +1,17 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, RootStateOrAny } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { enterWhat } from "../RootSlice";
 import { TextField, Button, Card, CardContent} from "@material-ui/core";
 
 export const What = () => {
-    const state = useSelector(state => state)
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const what = useSelector(state => state.what)
+	const what = useSelector((state: RootStateOrAny) => state.what)
 	const { register, handleSubmit } = useForm({ defaultValues: { what } })
 	
-	const onSubmit = (data) => {
+	const onSubmit = (data: { what: string; }) => {
 		dispatch(enterWhat(data.what))
 		history.push("/where")
 	}
@@ -21,7 +20,7 @@ export const What = () => {
 			<div className="flex-container">
 			<Card className="survey">
                 <CardContent>
-                    <p>What is {state.who} doing?</p>
+                    <p>What are they doing?</p>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
 							<label htmlFor="what"></label>
@@ -32,7 +31,6 @@ export const What = () => {
 								label="Enter an action"
 								defaultValue=""
                                 variant="outlined"
-                                name="what"
                                 {...register('what', { required: true })}
 							/>
 						</div>
