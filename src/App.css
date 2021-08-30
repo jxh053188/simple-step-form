@@ -1,9 +1,10 @@
 .survey {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  width: 15%;
-  float: center;
+  width: 30%;
+  float: right;
   margin-left: 10px;
+  display: flex;
 }
 
 .survey:hover {
@@ -16,3 +17,9 @@
   justify-content: space-around;
   background: #fff;
 }
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+}
+

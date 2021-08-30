@@ -1,32 +1,9 @@
 import React from "react";
-import { useRef } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { enterWho } from "../../RootSlice";
+import { enterWho } from "../RootSlice";
 import { TextField, Button, Card, CardContent, CardActions } from "@material-ui/core";
-import { NavigateNext } from "@material-ui/icons";
-import { classExpression } from "@babel/types";
-import { makeStyles } from "@material-ui/core/styles";
-import { render } from "@testing-library/react";
-
-const useStyles = makeStyles({
-	root: {
-	  minWidth: 275,
-	},
-	bullet: {
-	  display: 'inline-block',
-	  margin: '0 2px',
-	  transform: 'scale(0.8)',
-	},
-	title: {
-	  fontSize: 14,
-	},
-	pos: {
-	  marginBottom: 12,
-	},
-  });
-  
 
 export const Who = () => {
 	const dispatch = useDispatch()
@@ -36,6 +13,7 @@ export const Who = () => {
 	
 	const onSubmit = (data) => {
 		dispatch(enterWho(data.who))
+		console.log(who)
 		history.push("/what")
 	}
 	
@@ -49,12 +27,18 @@ export const Who = () => {
 							<TextField
 								required
 								id="who"
-								label="Who"
+								label="who"
 								defaultValue=""
 								variant="outlined"
+								fullWidth
+						
 							/>
 						</div>
-						<Button type="submit">Next</Button>
+						<button>Next</button>
+						<div className="button-container">
+                            <Button>Back</Button>
+                            <Button type="submit">Next</Button>
+                        </div>
 					</form>
 				</CardContent>
 			</Card>

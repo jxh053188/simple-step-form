@@ -2,18 +2,18 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { enterWhat } from "../RootSlice";
+import { enterWhen } from "../RootSlice";
 import { TextField, Button, Card, CardContent, CardActions } from "@material-ui/core";
 
-export const What = () => {
+export const When = () => {
 	const dispatch = useDispatch()
 	const history = useHistory()
-	const what = useSelector(state => state.what)
-	const { register, handleSubmit } = useForm({ defaultValues: { what } })
+	const when = useSelector(state => state.when)
+	const { register, handleSubmit } = useForm({ defaultValues: { when } })
 	
 	const onSubmit = (data) => {
-		dispatch(enterWhat(data.what))
-		history.push("/where")
+		dispatch(enterWhen(data.when))
+		history.push("/result")
 	}
 	
 	return (
@@ -22,11 +22,11 @@ export const What = () => {
 				<CardContent>
 					<form onSubmit={handleSubmit(onSubmit)}>
 						<div>
-							<label htmlFor="what"></label>
+							<label htmlFor="when"></label>
 							<TextField
 								required
-								id="what"
-								label="what"
+								id="when"
+								label="When"
 								defaultValue=""
 								variant="outlined"
 							/>
