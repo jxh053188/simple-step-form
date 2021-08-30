@@ -28,11 +28,13 @@ export const What = () => {
 								id="what"
 								label="what"
 								defaultValue=""
-								variant="outlined"
+                                variant="outlined"
+                                name="what"
+                                {...register('what', { required: true })}
 							/>
 						</div>
                         <div>
-                            <Button>Back</Button>
+                            <Button onClick={history.goBack}>Back</Button>
                             <Button type="submit">Next</Button>
                         </div>
 					</form>

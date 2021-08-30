@@ -28,11 +28,13 @@ export const When = () => {
 								id="when"
 								label="When"
 								defaultValue=""
-								variant="outlined"
+                                variant="outlined"
+                            name="when"
+                                {...register('when', { required: true })}
 							/>
 						</div>
                         <div>
-                            <Button>Back</Button>
+                        <Button onClick={history.goBack}>Back</Button>
                             <Button type="submit">Next</Button>
                         </div>
 					</form>

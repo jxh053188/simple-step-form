@@ -28,11 +28,13 @@ export const Where = () => {
 								id="where"
 								label="where"
 								defaultValue=""
-								variant="outlined"
+                                variant="outlined"
+                                name="where"
+                                {...register('where', { required: true })}
 							/>
                         </div>
                         <div>
-                            <Button>Back</Button>
+                        <Button onClick={history.goBack}>Back</Button>
                             <Button type="submit">Next</Button>
                         </div>
 					</form>

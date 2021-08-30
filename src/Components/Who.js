@@ -9,7 +9,7 @@ export const Who = () => {
 	const dispatch = useDispatch()
 	const history = useHistory()
 	const who = useSelector(state => state.who)
-	const { register, handleSubmit } = useForm({ defaultValues: { who } })
+	const { register, handleSubmit, formState: {errors} } = useForm({ defaultValues: { who } })
 	
 	const onSubmit = (data) => {
 		dispatch(enterWho(data.who))
@@ -21,25 +21,24 @@ export const Who = () => {
 			<div className="flex-container">
 			<Card className="survey">
 				<CardContent>
+					<CardActions>
 					<form onSubmit={handleSubmit(onSubmit)}>
-						<div>
 							<label htmlFor="who"></label>
 							<TextField
+								name="who"
 								required
 								id="who"
 								label="who"
-								defaultValue=""
 								variant="outlined"
 								fullWidth
+								{...register('who', { required: true })}
 						
 							/>
-						</div>
-						<button>Next</button>
 						<div className="button-container">
-                            <Button>Back</Button>
-                            <Button type="submit">Next</Button>
+                        	<Button type="submit">Next</Button>
                         </div>
-					</form>
+						</form>
+						</CardActions>
 				</CardContent>
 			</Card>
 			</div>

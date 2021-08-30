@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const rootSlice = createSlice({
     name: "root",
     initialState: {
-        who: "Default Who",
+        who: "",
         what: "",
         when: "",
         where: ""
