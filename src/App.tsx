@@ -2,16 +2,16 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { Who } from './Who';
+import { Who } from './Components/Who/Who';
+import { What } from './Components/What'
+import { Result } from './Components/Result';
 
 function App() {
   return (
     <Router>
       <Route exact path='/' component={Who} />
-      <Route exact path='/what' component={What} />
-      <Route exact path='/when' component={When} />
-      <Route exact path='/where' component={Where} />
-      <Route exact path='/result' component={Result} />
+      <Route path='/what' component={What} />
+      <Route path='/result' component={Result} />
     </Router>
   )
 }

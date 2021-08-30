@@ -4,10 +4,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const rootSlice = createSlice({
     name: "root",
     initialState: {
-        who: "",
-        what: "",
-        when: "",
-        where: ""
+        who: "Who",
+        what: "What",
+        when: "When",
+        where: "Where"
     },
     reducers: {
         enterWho: (state, action) => { state.who = action.payload },
